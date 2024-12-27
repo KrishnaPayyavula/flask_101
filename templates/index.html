@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block head %}Home{% endblock %}
+
+{% block content %}
+   <div class="container">
+        <table class="table">
+            <tr>
+                <th>Task</th>
+                <th>Added</th>
+                <th>Actions</th>
+            </tr>
+            {% for task in tasks %}
+            <tr>
+                <td>{{task.content}}</td>
+                <td>{{task.date_created.date()}}</td>
+                <td>
+                    <a href="/update/{{task.id}}">update</a>
+                    <a href="/delete/{{task.id}}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <form action="/" method="POST">
+            <input type="text" name="content" placeholder="Task">
+            <input type="submit" value="Add Task">
+        
+        </form>
+        
+{% endblock %}
