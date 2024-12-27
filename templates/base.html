@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Todo App{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <title>{% block title %}My Flask App{% endblock %}</title>
-    {% block head %}
-    <!-- Additional head content can be added here -->
-    {% endblock %}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    {% block head %}{% endblock %}
 </head>
 <body>
     <header>
-       
+        <h1>Task Manager</h1>
     </header>
+    
     <main>
-        {% block content %}
-        <!-- Main content will be injected here -->
-        {% endblock %}
+        {% block content %}{% endblock %}
     </main>
+
     <footer>
-        <p>&copy; 2024 My Flask App</p>
+        <p>&copy; 2024 Task Manager. All rights reserved.</p>
     </footer>
 </body>
 </html>

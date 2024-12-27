@@ -69,4 +69,4 @@ if __name__ == '__main__':
             print("Failed to create database file 'test.db'")
 
         # Run the application
-        app.run(debug=True)
+        app.run()

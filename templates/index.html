@@ -1,31 +1,32 @@
 {% extends 'base.html' %}
 
-{% block head %}Home{% endblock %}
-
 {% block content %}
-   <div class="container">
-        <table class="table">
+<div class="container">
+    <form action="/" method="POST">
+        <input type="text" name="content" placeholder="Enter your task here..." required>
+        <input type="submit" value="Add Task">
+    </form>
+
+    <table>
+        <thead>
             <tr>
                 <th>Task</th>
-                <th>Added</th>
+                <th>Added Date</th>
                 <th>Actions</th>
             </tr>
+        </thead>
+        <tbody>
             {% for task in tasks %}
             <tr>
                 <td>{{task.content}}</td>
                 <td>{{task.date_created.date()}}</td>
-                <td>
-                    <a href="/update/{{task.id}}">update</a>
-                    <a href="/delete/{{task.id}}">Delete</a>
+                <td class="action-links">
+                    <a href="/update/{{task.id}}" class="update-link">Update</a>
+                    <a href="/delete/{{task.id}}" class="delete-link">Delete</a>
                 </td>
             </tr>
             {% endfor %}
-        </table>
-
-        <form action="/" method="POST">
-            <input type="text" name="content" placeholder="Task">
-            <input type="submit" value="Add Task">
-        
-        </form>
-        
+        </tbody>
+    </table>
+</div>
 {% endblock %}
